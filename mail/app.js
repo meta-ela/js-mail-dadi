@@ -18,13 +18,19 @@ stampa un messaggio appropriato sull’esito del controllo.
 const emailUser = prompt("Inserisci la tua email");
 
 //creare array con emails random
-const emailAttive = ["giocoliere@gmail.com", "laura@outlook.com", "mister@live.it", "jedi@oscuro.com", "helpme@live.it"];
+const emailAttive = [
+    "giocoliere@gmail.com", 
+    "laura@outlook.com", 
+    "mister@live.it", 
+    "jedi@oscuro.com", 
+    "helpme@live.it",
+];
 
 
 // statement se email attiva o meno
-if (emailAttive === emailUser) {
+if (emailUser == emailAttive) {
     alert("email attiva");
-} else {
+} else if (emailUser !== emailAttive) {
     alert("email non attiva");
 }
 
