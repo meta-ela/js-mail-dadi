@@ -15,10 +15,33 @@ stampa un messaggio appropriato sull’esito del controllo.
 */
 
 // chiedere all'utente l'email
-const emailUser = prompt("Inserisci la tua email");
+// const emailUser = prompt("Inserisci la tua email");
 
-//creare array con emails random
-const emailAttive = [
+// //creare array con emails random
+// const emailAttive = [
+//     "giocoliere@gmail.com", 
+//     "laura@outlook.com", 
+//     "mister@live.it", 
+//     "jedi@oscuro.com", 
+//     "helpme@live.it",
+// ];
+
+
+// // statement se email attiva o meno
+// if (emailUser == emailAttive) {
+//     alert("email attiva");
+// } else if (emailUser !== emailAttive) {
+//     alert("email non attiva");
+// }
+
+
+// console.log(emailUser, emailAttive)
+
+const emailInput = document.getElementById('emailInput');
+const btnSubmit = document.getElementById('btnSubmit');
+const alertResult = document.getElementById('alertResult');
+
+const emailList = [     
     "giocoliere@gmail.com", 
     "laura@outlook.com", 
     "mister@live.it", 
@@ -26,13 +49,29 @@ const emailAttive = [
     "helpme@live.it",
 ];
 
+btnSubmit.addEventListener('click', function() {
+    const userEmail = emailInput.value;
+    let foundEmailIndex;
 
-// statement se email attiva o meno
-if (emailUser == emailAttive) {
-    alert("email attiva");
-} else if (emailUser !== emailAttive) {
-    alert("email non attiva");
-}
+    for (let i = 0; i < emailList.length; i++) {
+        const currentEmail = emailList[i];
 
+        if(currentEmail === userEmail) {
+            console.log("Accesso consentito");
+            foundEmailIndex = i;
+        }
+    }
 
-console.log(emailUser, emailAttive)
+    if (foundEmailIndex != undefined) {
+        console.log("Accesso non consentito");
+        alertResult.innerHTML = "Accesso Consentito!";
+        alertResult.classList.remove("alert-danger");
+        alertResult.classList.add("alert-success");
+    } else {
+        alertResult.innerHTML = "Accesso non consentito!";
+        alertResult.classList.remove("alert-success");
+        alertResult.classList.add("alert-danger");
+    }
+
+    alertResult.classList.remove("d-none");
+})

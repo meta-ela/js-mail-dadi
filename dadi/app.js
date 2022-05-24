@@ -31,18 +31,24 @@ const button = document.getElementById("buttonGenerate");
 button.addEventListener("click", function() {
     n = "";
 
-    for (i = 1; i < 7; i++) {
-        number = Math.round(Math.random() * 6);
-        console.log(number);
-        
+    for (let i = 1; i <= 6; i++) {
+        let number = Math.floor(Math.random() * 6) + 1;
+        console.log(number);       
         if (i > 0) {
             n += ", ";
         }
-
         n += number;
     }
     
     let resultNumber = document.getElementById("result-number");
+    resultNumber.innerHTML= `Numeri: ${n}`;
 
-        resultNumber.innerHTML= `Numeri: ${n}`;
+    numberUser = [resultNumber];
+
+    let randomNumber = Math.floor(Math.random() * 6) + 1 ;
+    console.log(randomNumber);
+
+    let resultRandomNumber = document.getElementById("random-number");
+    resultRandomNumber.innerHTML= `Numeri Random Macchina: ${randomNumber}`;
+    
 });
